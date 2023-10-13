@@ -28,4 +28,4 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 - Rails 6.1 [Rails Guide](http://guides.rubyonrails.org/v6.1/)
 - Bootstrap 5
 - PostgreSQL 9.x
-- Stripe
+- Stripe...
