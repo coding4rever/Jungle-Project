@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+  get 'users/create'
   get 'about/index'  
 
   root to: 'products#index'
@@ -16,10 +18,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'dashboard#show'
-    resources :products, except: [:edit, :update, :show]    
-  end
-  namespace :admin do
+    resources :products, except: [:edit, :update, :show]  
     resources :categories, only: [:index, :new, :create]
+  end
+
+  resources :users, only: [:new, :create] do
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
